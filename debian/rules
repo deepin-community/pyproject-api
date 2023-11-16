@@ -1,4 +1,17 @@
 #!/usr/bin/make -f
 
+# Disable tests:
+# * test_setuptools_prepare_metadata_for_build_wheel
+#   - fails due to install_requires sorting order
+#     https://github.com/tox-dev/pyproject-api/issues/77
+export PYBUILD_TEST_ARGS=-k "not test_setuptools_prepare_metadata_for_build_wheel"
+
 %:
-	dh $@
+	dh $@ --buildsystem=pybuild
+
+ifeq (,$(findstring nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
+execute_after_dh_auto_build-indep: export http_proxy=127.0.0.1:9
+execute_after_dh_auto_build-indep: export https_proxy=127.0.0.1:9
+execute_after_dh_auto_build-indep:
+	PYTHONPATH=src python3 -m sphinx -N -bhtml docs/ build/html
+endif

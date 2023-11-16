@@ -1,5 +1,48 @@
-template-repository (1.0-1) unstable; urgency=medium
+pyproject-api (1.6.1-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream release.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Faidon Liambotis <paravoid@debian.org>  Wed, 30 Aug 2023 23:55:01 +0300
+
+pyproject-api (1.5.4-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Faidon Liambotis <paravoid@debian.org>  Tue, 22 Aug 2023 13:16:43 +0300
+
+pyproject-api (1.5.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * No-op d/rules cleanup:
+    - Drop PYBUILD_NAME export, as it's automatically derived.
+    - Drop SETUPTOOLS_SCM_PRETEND_VERSION export, as dh-python >= 5.20230130
+      does this automatically.
+    - Drop "-k not test_can_build_on_python_2", test removed upstream.
+
+ -- Faidon Liambotis <paravoid@debian.org>  Thu, 03 Aug 2023 16:07:05 +0300
+
+pyproject-api (1.5.1-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Fixes build reproducibility issue, as reported by Chris Lamb.
+      (Closes: #1032057)
+
+ -- Faidon Liambotis <paravoid@debian.org>  Mon, 13 Mar 2023 15:32:10 +0200
+
+pyproject-api (1.5.0-2) unstable; urgency=medium
+
+  * Source-only upload.
+  * Drop python3-tomli dependency in favor of X-Python3-Version: >= 3.11.
+  * Enable tests, by adding new build dependencies (pytest etc.) necessary for
+    running them. Rely on pybuild to autodetect, only configuring
+    PYBUILD_TEST_ARGS to disable a couple of tests that are expected to fail.
+  * Use autopkgtest-pkg-pybuild to also run the aforementioned tests as
+    autopkgtests.
+
+ -- Faidon Liambotis <paravoid@debian.org>  Mon, 27 Feb 2023 20:43:47 +0200
+
+pyproject-api (1.5.0-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #1031298)
+
+ -- Faidon Liambotis <paravoid@debian.org>  Tue, 14 Feb 2023 21:00:54 +0200
