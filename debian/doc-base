@@ -1,0 +1,9 @@
+Document: pyproject-api
+Title: pyproject-api documentation
+Author: Bernát Gábor
+Abstract: This manual briefly describes the pyproject-api module API.
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python3-pyproject-api/html/index.html
+Files: /usr/share/doc/python3-pyproject-api/html/*
